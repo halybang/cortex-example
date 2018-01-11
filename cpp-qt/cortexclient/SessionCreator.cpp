@@ -40,7 +40,7 @@ void SessionCreator::createSession(CortexClient* client,
     this->client = client;
     this->headsetId = headsetId;
     this->license = license;
-    connect(client, &CortexClient::createSession, this, &SessionCreator::onCreateSession);
+    connect(client, &CortexClient::createSessionOk, this, &SessionCreator::onCreateSession);
     bool activate = ! license.isEmpty();
     client->createSession(headsetId, activate);
 }
